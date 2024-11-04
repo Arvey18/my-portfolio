@@ -10,7 +10,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'; // Import the react-refr
 export default [
   {
     ignores: ['dist'],
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
@@ -37,7 +37,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      'prettier/prettier': 'warn',
+      'prettier/prettier': 'error',
     },
   },
 ];
