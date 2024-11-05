@@ -1,4 +1,3 @@
-// .prettierrc.js
 export default {
   singleQuote: true, // Use single quotes instead of double quotes
   trailingComma: 'es5', // Add trailing commas where valid in ES5
