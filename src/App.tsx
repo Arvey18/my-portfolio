@@ -1,13 +1,31 @@
-// components
+import { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import VersionComponent from '@/components/versionComponent';
-import WelcomeComponent from '@/components/welcomeComponent';
+// pages
+const Home = lazy(() => import('@/pages/home'));
+const NoMatch = lazy(() => import('@/pages/noMatch'));
 
 function App() {
   return (
-    <div className="text-center p-5">
-      <WelcomeComponent />
-      <VersionComponent />
+    <div className="relative p-5">
+      <Routes>
+        <Route
+          index
+          element={
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
+              <Home />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<div className="text-center">Loading...</div>}>
+              <NoMatch />
+            </Suspense>
+          }
+        />
+      </Routes>
     </div>
   );
 }

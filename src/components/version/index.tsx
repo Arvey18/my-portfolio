@@ -1,4 +1,4 @@
-const VersionComponent = () => {
+const Version = () => {
   // Access environment variables for app version and app environment
   const appVersion = import.meta.env.VITE_VERSION;
   const appEnvironment = import.meta.env.VITE_ENVIRONMENT;
@@ -8,4 +8,4 @@ const VersionComponent = () => {
   );
 };
 
-export default VersionComponent;
+export default Version;
