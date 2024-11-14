@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+/// <reference types="vitest/config" />
+
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -21,6 +24,15 @@ export default defineConfig(({ mode }) => {
           includes: ['log', 'debug', 'error', 'info'],
         }),
     ],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './src/vitest.setup.ts',
+      css: true,
+      testTimeout: 5000,
+      reporters: ['verbose'],
+      exclude: ['**/node_modules/**', '**/dist/**'],
+    },
     server: {
       port: 3000,
       open: true,
