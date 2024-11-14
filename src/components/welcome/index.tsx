@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import LanguageChanger from '@/components/languageChanger';
+import LanguageChanger from '@/components/language-changer';
 
 const Welcome = () => {
   const { t } = useTranslation();
