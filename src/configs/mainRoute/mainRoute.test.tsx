@@ -8,7 +8,7 @@ vi.mock('@/pages/home', () => ({
 }));
 
 vi.mock('@/pages/noMatch', () => ({
-  default: () => <div>Page not Found!</div>,
+  default: () => <div>Page nos Found!</div>,
 }));
 
 describe('Main Route', () => {
