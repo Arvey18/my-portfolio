@@ -15,18 +15,19 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Absolute paths */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
-    /* Absolute paths */
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"]
-    }
+    "types": ["vitest/globals"]
   },
-  "include": ["src"]
+  "include": ["src", "src/vitest.setup.ts"]
 }
