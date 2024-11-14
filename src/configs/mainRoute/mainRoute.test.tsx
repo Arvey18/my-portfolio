@@ -1,7 +1,7 @@
 import { render, screen, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it, expect, vi } from 'vitest';
-import MainRoute from './mainRoute';
+import MainRoute from '.';
 
 vi.mock('@/pages/home', () => ({
   default: () => <div>Home Page</div>,
