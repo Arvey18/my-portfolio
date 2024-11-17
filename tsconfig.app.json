@@ -16,9 +16,9 @@
     "jsx": "react-jsx",
 
     /* Absolute paths */
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
 
     /* Linting */

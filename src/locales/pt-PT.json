@@ -1,3 +1,8 @@
 {
-  "hello": "Olá"
+  "hello": "Olá",
+  "home": "Início",
+  "about-me": "Sobre mim",
+  "skills": "Habilidades",
+  "work": "Trabalho",
+  "experience": "Experiência"
 }

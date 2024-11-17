@@ -15,6 +15,7 @@ i18next
     interpolation: {
       escapeValue: false,
     },
+
     detection: {
       order: ['navigator'], // Only use browser language setting
       caches: [], // Do not cache language selection in localStorage or cookies

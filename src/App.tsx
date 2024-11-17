@@ -1,9 +1,10 @@
 import '@/configs/i18n';
-import MainRoute from '@/configs/mainRoute';
+import MainRoute from '@/configs/main-route';
 
 function App() {
+  console.log('Init App');
   return (
-    <div className="relative p-5">
+    <div data-testid="app-container" className="relative">
       <MainRoute />
     </div>
   );

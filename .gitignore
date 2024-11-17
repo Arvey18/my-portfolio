@@ -30,3 +30,7 @@ dist-ssr
 # lock files
 package-lock.json
 yarn-lock.json
+
+# server
+server
+server/*

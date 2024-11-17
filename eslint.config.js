@@ -35,7 +35,7 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.recommended.rules,
       ...tseslint.configs.stylisticTypeChecked,
       ...reactHooks.configs.recommended.rules,
       ...react.configs.recommended.rules,
