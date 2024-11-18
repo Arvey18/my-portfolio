@@ -2,31 +2,30 @@ import LocationWithIcon from '@/components/ui/location-with-icon';
 import LinkWithIcon from '@/components/ui/link-with-icon';
 import WorkWithIcon from '@/components/ui/work-with-icon';
 import Tags from '@/components/ui/tags';
+import { WorkExperience } from '@/types/work-experience';
+import { ReactNode } from 'react';
 
-const WorkDetails = () => {
+interface WorkDetailsProps {
+  data: WorkExperience;
+  children?: ReactNode;
+}
+
+const WorkDetails = ({ data, children }: WorkDetailsProps) => {
   return (
     <div className="w-full">
       <div className="flex flex-row gap-4 mb-4">
-        <LocationWithIcon text="Singapore, Singapore" />
-        <LinkWithIcon text="Favorite Medium" link="favorite medium" />
-        <WorkWithIcon text="Office Based" />
+        <LocationWithIcon text={data.location} />
+        <LinkWithIcon
+          text={data.company_url.label}
+          link={data.company_url.link}
+        />
+        <WorkWithIcon text={data.work_type} />
       </div>
-      <div className="text-base mb-6">
-        - Converting PSD to Static Websites
-        <br />
-        - Converting PSD to Custom Wordpress Theme
-        <br />
-        - Converting PSD to Custom Drupal Theme
-        <br />- Creating POC using ReactJs
-      </div>
+      <div className="text-base mb-6">{children}</div>
       <div className="flex flex-row gap-2">
-        <Tags text="HTML" />
-        <Tags text="HTML" />
-        <Tags text="HTML" />
-        <Tags text="HTML" />
-        <Tags text="HTML" />
-        <Tags text="HTML" />
-        <Tags text="HTML" />
+        {data.tags.map((value) => (
+          <Tags key={data.id + value} text={value} />
+        ))}
       </div>
     </div>
   );

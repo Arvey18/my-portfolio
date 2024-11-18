@@ -7,7 +7,7 @@ import App from './App';
 vi.mock('@/configs/main-route', () => {
   return {
     __esModule: true,
-    default: () => <div data-testid="mock-main-route">Mock MainRoute</div>,
+    default: () => <div data-testid="main-route-config">Mock MainRoute</div>,
   };
 });
 
@@ -23,6 +23,6 @@ describe('App Component', () => {
     expect(screen.getByTestId('app-container')).toBeInTheDocument();
 
     // Assert that the mock version of MainRoute is rendered
-    expect(screen.getByTestId('mock-main-route')).toBeInTheDocument();
+    expect(screen.getByTestId('main-route-config')).toBeInTheDocument();
   });
 });

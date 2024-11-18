@@ -1,16 +1,21 @@
 import TextBlockWithCTAButton from '@/components/text-block-with-cta-button';
+import BannerBlock from '@/components/banner-block';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Separator } from '@/components/ui/separator';
 import WorkDetails from '@/components/work-details/index';
+import { workExperience } from '@/constants/work-experience';
+import { skillsData } from '@/constants/skills';
 import GraphicsWebDevelopment from '@/assets/images/graphics-web-development-2.png';
 import SectionHeadline from '@/components/section-headline';
 import MinusIcon from '@/assets/svg/minus.svg?react';
 import PlusIcon from '@/assets/svg/plus.svg?react';
-import { Separator } from '@/components/ui/separator';
+import Mail from '@/assets/svg/mail.svg?react';
+import Skill from '@/components/ui/skill';
 
 const Home = () => {
   return (
@@ -48,8 +53,19 @@ const Home = () => {
           <SectionHeadline
             key="skills-section-headline"
             preTitle="Skills"
-            mainTitle="The Skills, tools and technologies I have used in my entire career:"
+            mainTitle="The skills, tools and technologies I am currently using:"
           />
+          <div className="relative max-w-5xl mx-auto flex flex-row flex-wrap gap-14 justify-center">
+            {skillsData.map((value) => {
+              return (
+                <Skill
+                  key={`skills-${value.image.alt}-${value.id}`}
+                  text={value.text}
+                  image={value.image}
+                />
+              );
+            })}
+          </div>
         </div>
       </section>
       {/* <section id="work" className="relative w-full bg-background">
@@ -70,98 +86,51 @@ const Home = () => {
           />
           <Accordion
             type="multiple"
-            defaultValue={['item-1']}
+            defaultValue={[workExperience[0].id]}
             className="w-full"
           >
-            <AccordionItem
-              value="item-1"
-              className="border-solid border border-border rounded-xl px-4 mb-4"
-            >
-              <AccordionTrigger
-                customIconActive={<MinusIcon className="size-8 text-primary" />}
-                customIconNonActive={
-                  <PlusIcon className="size-8 text-primary" />
-                }
+            {workExperience.map((work) => (
+              <AccordionItem
+                key={`work-detail-${work.id}`}
+                value={work.id}
+                className="border-solid border border-border rounded-xl px-4 mb-4"
               >
-                <div className="flex-1 no-underline text-left text-xl font-semibold">
-                  Web Developer @ Favorite Medium
-                </div>
-                <div className="text-left text-xl font-semibold pr-2">
-                  June 2014 - April 2019
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <Separator className="mb-6" />
-                <WorkDetails />
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-2"
-              className="border-solid border border-border rounded-xl px-4 mb-4"
-            >
-              <AccordionTrigger
-                customIconActive={<MinusIcon className="size-8 text-primary" />}
-                customIconNonActive={
-                  <PlusIcon className="size-8 text-primary" />
-                }
-              >
-                <div className="flex-1 text-left text-xl font-semibold">
-                  Web Developer @ Favorite Medium
-                </div>
-                <div className="text-left text-xl font-semibold pr-2">
-                  June 2014 - April 2019
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <Separator className="mb-6" />
-                <WorkDetails />
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-3"
-              className="border-solid border border-border rounded-xl px-4 mb-4"
-            >
-              <AccordionTrigger
-                customIconActive={<MinusIcon className="size-8 text-primary" />}
-                customIconNonActive={
-                  <PlusIcon className="size-8 text-primary" />
-                }
-              >
-                <div className="flex-1 text-left text-xl font-semibold">
-                  Web Developer @ Favorite Medium
-                </div>
-                <div className="text-left text-xl font-semibold pr-2">
-                  June 2014 - April 2019
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <Separator className="mb-6" />
-                <WorkDetails />
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-4"
-              className="border-solid border border-border rounded-xl px-4"
-            >
-              <AccordionTrigger
-                customIconActive={<MinusIcon className="size-8 text-primary" />}
-                customIconNonActive={
-                  <PlusIcon className="size-8 text-primary" />
-                }
-              >
-                <div className="flex-1 text-left text-xl font-semibold">
-                  Web Developer @ Favorite Medium
-                </div>
-                <div className="text-left text-xl font-semibold pr-2">
-                  June 2014 - April 2019
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <Separator className="mb-6" />
-                <WorkDetails />
-              </AccordionContent>
-            </AccordionItem>
+                <AccordionTrigger
+                  customIconActive={
+                    <MinusIcon className="size-8 text-primary" />
+                  }
+                  customIconNonActive={
+                    <PlusIcon className="size-8 text-primary" />
+                  }
+                >
+                  <div className="flex-1 no-underline text-left text-xl font-semibold">
+                    {work.work_title} @ {work.company}
+                  </div>
+                  <div className="text-left text-xl font-semibold pr-2">
+                    {work.work_duration}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <Separator className="mb-6" />
+                  <WorkDetails data={work}>{work.content}</WorkDetails>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
+        </div>
+      </section>
+      <section id="contact-banner" className="relative w-full bg-background">
+        <div className="w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20 mb-60">
+          <BannerBlock
+            title="Get in Touch"
+            description="I'm always open to new opportunities and collaborations. If you'd like to work together or have any questions, feel free to reach out. I'd love to hear from you!"
+            button={{
+              label: 'Contact Me',
+              link: '#',
+              type: 'link',
+            }}
+            icon={<Mail />}
+          />
         </div>
       </section>
     </>

@@ -5,3 +5,8 @@ export type Text = {
 export type Link = {
   link?: string;
 };
+
+export type Image = {
+  url: string;
+  alt: string;
+};
