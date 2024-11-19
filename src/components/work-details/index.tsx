@@ -1,9 +1,10 @@
-import LocationWithIcon from '@/components/ui/location-with-icon';
 import LinkWithIcon from '@/components/ui/link-with-icon';
-import WorkWithIcon from '@/components/ui/work-with-icon';
 import Tags from '@/components/ui/tags';
 import { WorkExperience } from '@/types/work-experience';
 import { ReactNode } from 'react';
+import LinkIcon from '@/assets/svg/link.svg?react';
+import Location from '@/assets/svg/location.svg?react';
+import Work from '@/assets/svg/work.svg?react';
 
 interface WorkDetailsProps {
   data: WorkExperience;
@@ -14,12 +15,22 @@ const WorkDetails = ({ data, children }: WorkDetailsProps) => {
   return (
     <div className="w-full">
       <div className="flex flex-row gap-4 mb-4">
-        <LocationWithIcon text={data.location} />
         <LinkWithIcon
+          key="location-work-details-link-with-icon"
+          text={data.location}
+          icon={<Location />}
+        />
+        <LinkWithIcon
+          key="link-work-details-link-with-icon"
           text={data.company_url.label}
           link={data.company_url.link}
+          icon={<LinkIcon />}
         />
-        <WorkWithIcon text={data.work_type} />
+        <LinkWithIcon
+          key="work-type-work-details-link-with-icon"
+          text={data.work_type}
+          icon={<Work />}
+        />
       </div>
       <div className="text-base mb-6">{children}</div>
       <div className="flex flex-row gap-2">

@@ -10,12 +10,16 @@ import { Separator } from '@/components/ui/separator';
 import WorkDetails from '@/components/work-details/index';
 import { workExperience } from '@/constants/work-experience';
 import { skillsData } from '@/constants/skills';
-import GraphicsWebDevelopment from '@/assets/images/graphics-web-development-2.png';
+import GraphicsWebDevelopment2 from '@/assets/images/graphics-web-development-2.png';
+import GraphicsWebDevelopment from '@/assets/images/graphics-web-development.png';
 import SectionHeadline from '@/components/section-headline';
 import MinusIcon from '@/assets/svg/minus.svg?react';
 import PlusIcon from '@/assets/svg/plus.svg?react';
 import Mail from '@/assets/svg/mail.svg?react';
 import Skill from '@/components/ui/skill';
+import SocialMediaButton from '@/components/ui/social-media';
+import { socialMedias } from '@/constants/social-media';
+import WorkTeaserCard from '@/components/work-teaser-card';
 
 const Home = () => {
   return (
@@ -44,7 +48,63 @@ const Home = () => {
             </TextBlockWithCTAButton>
           </div>
           <div className="flex-1">
-            <img src={GraphicsWebDevelopment} alt="graphics-web-development" />
+            <img
+              src={GraphicsWebDevelopment2}
+              alt="graphics-web-development-2"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="about-me" className="relative w-full bg-background">
+        <div className="w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20 grid grid-cols-12">
+          <div className="col-span-4 flex justify-center items-center">
+            <div className="relative flex flex-col">
+              <div>
+                <img
+                  src={GraphicsWebDevelopment}
+                  className="max-w-full"
+                  alt="graphics-web-development"
+                />
+              </div>
+              <div className="flex justify-center mt-4">
+                <div className="flex flex-row items-center gap-2">
+                  {socialMedias.map((value) => (
+                    <div key={value.id}>
+                      <SocialMediaButton
+                        id={value.id}
+                        icon={value.icon}
+                        link={value.link}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-8 flex items-center">
+            <SectionHeadline
+              key="about-me-section-headline"
+              variant="left"
+              preTitle="About me"
+              mainTitle="Transforming Ideas into a real website or webapp"
+            >
+              I&lsquo;m a frontend developer with a strong background in
+              building websites and web applications. I have a passion for
+              creating engaging, user-friendly digital experiences using
+              JavaScript, HTML, CSS, and ReactJS.
+              <br />
+              <br />
+              I thrive in collaborative environments where I can share ideas,
+              learn from others, and contribute to team goals. I&apos;m always
+              excited to tackle new challenges and grow alongside my team
+              members.
+              <br />
+              <br />
+              Outside of work, I enjoy playing PC games and basketball, and I
+              find that traveling and driving are great ways to unwind and
+              recharge. Let&apos;s connect and chat about all things tech,
+              teamwork, and innovation!
+            </SectionHeadline>
           </div>
         </div>
       </section>
@@ -55,7 +115,7 @@ const Home = () => {
             preTitle="Skills"
             mainTitle="The skills, tools and technologies I am currently using:"
           />
-          <div className="relative max-w-5xl mx-auto flex flex-row flex-wrap gap-14 justify-center">
+          <div className="relative max-w-5xl mx-auto mt-12 flex flex-row flex-wrap gap-14 justify-center">
             {skillsData.map((value) => {
               return (
                 <Skill
@@ -68,15 +128,26 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* <section id="work" className="relative w-full bg-background">
+      <section id="work" className="relative w-full bg-background">
         <div className="w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20">
           <SectionHeadline
             key="work-section-headline"
             preTitle="Work"
-            mainTitle="Things I've been doing so far"
+            mainTitle="Things I can share"
           />
+          <div className="relative max-w-5xl mx-auto mt-12 grid grid-cols-12 gap-8">
+            <div className="col-span-4">
+              <WorkTeaserCard />
+            </div>
+            <div className="col-span-4">
+              <WorkTeaserCard />
+            </div>
+            <div className="col-span-4">
+              <WorkTeaserCard />
+            </div>
+          </div>
         </div>
-      </section> */}
+      </section>
       <section id="experience" className="relative w-full bg-background">
         <div className="w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20">
           <SectionHeadline
@@ -87,7 +158,7 @@ const Home = () => {
           <Accordion
             type="multiple"
             defaultValue={[workExperience[0].id]}
-            className="w-full"
+            className="w-full mt-12"
           >
             {workExperience.map((work) => (
               <AccordionItem

@@ -7,7 +7,7 @@ const workExperience: WorkExperience[] = [
     company: 'USER Experience Researchers',
     work_duration: 'April 2021 - Present',
     location: 'Singapore',
-    work_type: 'WFH',
+    work_type: 'Remote - WFH',
     company_url: {
       label: 'USER',
       link: 'https://www.user.com.sg/',
@@ -55,7 +55,7 @@ const workExperience: WorkExperience[] = [
     company: 'QuadX',
     work_duration: 'March 2020 - April 2021',
     location: 'Makati, Philippines',
-    work_type: 'WFH',
+    work_type: 'Remote - WFH',
     company_url: {
       label: 'QuadX',
       link: 'https://www.quadx.xyz/',

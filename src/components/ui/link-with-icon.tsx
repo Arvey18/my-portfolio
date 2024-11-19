@@ -1,14 +1,45 @@
-import LinkIcon from '@/assets/svg/link.svg?react';
-import { Link, Text } from '@/types/global-type';
+import { Link, Text, Icon } from '@/types/global-type';
+import { openLink } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
-type LinkProps = Text & Link;
+type LinkProps = Text &
+  Link &
+  Icon & {
+    variant?: 'left' | 'right';
+    className?: string;
+  };
 
-const LinkWithIcon = ({ text, link }: LinkProps) => {
+const LinkWithIcon = ({
+  className,
+  text,
+  link,
+  icon,
+  variant = 'left',
+}: LinkProps) => {
+  const clickLink = () => {
+    if (link) {
+      openLink({ link, target: '_blank' });
+    }
+  };
+
   return (
     <div
-      className={`flex flex-row items-center gap-2 text-muted-foreground text-base font-medium ${link ? 'cursor-pointer' : ''}`}
+      onClick={() => clickLink()}
+      className={cn(
+        'inline-flex flex-row items-center gap-2 text-muted-foreground text-base font-medium',
+        link && 'cursor-pointer hover:text-primary',
+        className
+      )}
     >
-      <LinkIcon /> {text}
+      {variant === 'left' ? (
+        <>
+          {icon} {text}
+        </>
+      ) : (
+        <>
+          {text} {icon}
+        </>
+      )}
     </div>
   );
 };

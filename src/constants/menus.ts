@@ -18,7 +18,7 @@ const MainNavbarMenu: Menu[] = [
   },
   {
     label: 'work',
-    link: 'work',
+    link: '#work',
     type: 'scrollTo',
   },
   {
@@ -28,4 +28,6 @@ const MainNavbarMenu: Menu[] = [
   },
 ];
 
-export { MainNavbarMenu };
+const Menus: string[] = ['home', 'about-me', 'skills', 'work', 'experience'];
+
+export { MainNavbarMenu, Menus };
