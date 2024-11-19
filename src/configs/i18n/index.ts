@@ -21,7 +21,7 @@ i18next
       caches: [], // Do not cache language selection in localStorage or cookies
     },
     backend: {
-      loadPath: '/src/locales/{{lng}}.json', // Adjusted to match your file structure
+      loadPath: '/locales/{{lng}}.json', // Adjusted to match your file structure
     },
   });
 
