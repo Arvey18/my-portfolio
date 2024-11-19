@@ -1,11 +1,8 @@
 import useThemeStore from '@/stores/theme';
-import Button from '../ui/button';
 import LogoWhite from '@/assets/images/logo-white.png';
 import LogoDark from '@/assets/images/logo-dark.png';
-import FacebookLogo from '@/assets/svg/facebook.svg?react';
-import InstagramLogo from '@/assets/svg/instagram.svg?react';
-import LinkedInLogo from '@/assets/svg/linkedin.svg?react';
-import GithubLogo from '@/assets/svg/github.svg?react';
+import SocialMediaButton from '@/components/ui/social-media';
+import { socialMedias } from '@/constants/social-media';
 
 const Footer = () => {
   const themeStyle = useThemeStore((state) => state.style);
@@ -27,26 +24,15 @@ const Footer = () => {
             arve505@gmail.com
           </div>
           <div className="flex flex-row items-center gap-2">
-            <div>
-              <Button className="rounded-full p-2 h-auto text-white">
-                <FacebookLogo className="size-6" />
-              </Button>
-            </div>
-            <div>
-              <Button className="rounded-full p-2 h-auto text-white">
-                <InstagramLogo className="size-6" />
-              </Button>
-            </div>
-            <div>
-              <Button className="rounded-full p-2 h-auto text-white">
-                <LinkedInLogo className="size-6" />
-              </Button>
-            </div>
-            <div>
-              <Button className="rounded-full p-2 h-auto text-white">
-                <GithubLogo className="size-6" />
-              </Button>
-            </div>
+            {socialMedias.map((value) => (
+              <div key={value.id}>
+                <SocialMediaButton
+                  id={value.id}
+                  icon={value.icon}
+                  link={value.link}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ vi.mock('@/pages/home', () => ({
   default: () => <div>Home Page</div>,
 }));
 
-vi.mock('@/pages/noMatch', () => ({
+vi.mock('@/pages/no-match', () => ({
   default: () => <div>Page not Found!</div>,
 }));
 

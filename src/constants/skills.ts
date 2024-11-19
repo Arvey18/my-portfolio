@@ -2,7 +2,7 @@ import { SkillData } from '@/types/skill';
 import HTMLLogo from '@/assets/images/html-logo.png';
 import CSSLogo from '@/assets/images/css-logo.png';
 import JavaScriptLogo from '@/assets/images/javaScript-logo.png';
-import TypeScriptLogo from '@/assets/images/typeScript-logo.png';
+import TypeScriptLogo from '@/assets/images/typescript-logo.png';
 import GitLogo from '@/assets/images/git-logo.png';
 import FigmaLogo from '@/assets/images/figma-logo.png';
 import TailwindLogo from '@/assets/images/tailwind-logo.png';
