@@ -18,18 +18,18 @@ const WorkDetails = ({ data, children }: WorkDetailsProps) => {
         <LinkWithIcon
           key="location-work-details-link-with-icon"
           text={data.location}
-          icon={<Location />}
+          icon={<Location className="size-6" />}
         />
         <LinkWithIcon
           key="link-work-details-link-with-icon"
           text={data.company_url.label}
           link={data.company_url.link}
-          icon={<LinkIcon />}
+          icon={<LinkIcon className="size-6" />}
         />
         <LinkWithIcon
           key="work-type-work-details-link-with-icon"
           text={data.work_type}
-          icon={<Work />}
+          icon={<Work className="size-6" />}
         />
       </div>
       <div className="text-base mb-6">{children}</div>
