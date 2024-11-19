@@ -75,7 +75,7 @@ const MainRoute = () => {
           <Route
             index
             element={
-              <Suspense fallback={<></>}>
+              <Suspense fallback={<div className="bg-background h-svh"></div>}>
                 <Home />
               </Suspense>
             }
