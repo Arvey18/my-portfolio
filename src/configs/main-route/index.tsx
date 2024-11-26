@@ -14,7 +14,23 @@ const NoMatch = lazy(() => import('@/pages/no-match'));
 
 const PageLoader = () => {
   return (
-    <div className=" relative h-svh bg-background flex flex-col items-center justify-center">
+    <div className="relative h-svh bg-background flex flex-col items-center justify-center overflow-hidden">
+      <div className="absolute z-0 top-0 left-0">
+        <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-150px] left-[-150px] inline-block rounded-full w-[300px] h-[300px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-250px] left-[-250px] inline-block rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-350px] left-[-350px] inline-block rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-450px] left-[-450px] inline-block rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-550px] left-[-550px] inline-block rounded-full w-[1100px] h-[1100px] border-solid border-2 border-muted-foreground" />
+      </div>
+
+      <div className="absolute z-0 bottom-0 right-0">
+        <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-150px] left-[-150px] inline-block rounded-full w-[300px] h-[300px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-250px] left-[-250px] inline-block rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
+        <span className="absolute opacity-10 top-[-350px] left-[-350px] inline-block rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
+      </div>
+
       <div>
         <img src={PageLoaderGIF} alt="page-laoder" />
       </div>
