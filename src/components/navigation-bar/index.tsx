@@ -9,6 +9,7 @@ import Moon from '@/assets/svg/moon.svg?react';
 import LogoDark from '@/assets/images/logo-dark.png';
 import LogoWhite from '@/assets/images/logo-white.png';
 import { Menu } from '@/types/menu';
+import { motion } from 'motion/react';
 
 const NavigationBarMenus = () => {
   const { t } = useTranslation();
@@ -99,7 +100,12 @@ const NavigationBar = () => {
   }, [themeStyle]);
 
   return (
-    <nav id="main-navigation-bar" className="fixed w-full z-10 top-12 left-0">
+    <motion.nav
+      initial={{ top: '-100%', opacity: 0 }}
+      animate={{ top: '3rem', opacity: 1 }}
+      id="main-navigation-bar"
+      className="fixed w-full z-50 top-12 left-0"
+    >
       <div className="flex flex-row bg-background rounded-xl w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-5 py-7 border border-solid border-border">
         <div className="flex items-center">
           {themeStyle === 'light' ? (
@@ -118,7 +124,7 @@ const NavigationBar = () => {
           />
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -17,6 +17,7 @@ import Tags from '@/components/ui/tags';
 import LinkWithIcon from '@/components/ui/link-with-icon';
 import LinkIcon from '@/assets/svg/link.svg?react';
 import ChevronRightDouble from '@/assets/svg/chevron-right-double.svg?react';
+import { Separator } from '@/components/ui/separator';
 
 const WorkTeaserCard = () => {
   return (
@@ -52,8 +53,11 @@ const WorkTeaserCard = () => {
           <Tags text="HTML" />
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex">
-        <div className="flex-1">
+      <div className="px-4">
+        <Separator className="mt-4" />
+      </div>
+      <CardFooter className="py-4 px-4 flex items-center">
+        <div className="flex-1 flex items-center">
           <LinkWithIcon
             className="text-sm gap-1"
             text="Link"
@@ -61,7 +65,7 @@ const WorkTeaserCard = () => {
             icon={<LinkIcon className="size-4" />}
           />
         </div>
-        <div className="flex-1 flex justify-end">
+        <div className="flex-1 flex items-center justify-end">
           <LinkWithIcon
             className="text-sm gap-1"
             text="Read more"
