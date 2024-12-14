@@ -23,11 +23,11 @@ const WorkTeaserCard = () => {
   return (
     <Card className="overflow-hidden rounded-xl">
       <div
-        className="relative h-56 bg-no-repeat bg-cover bg-top"
+        className="relative lg:h-56 h-36 bg-no-repeat bg-cover bg-top"
         style={{ backgroundImage: `url(${SampleWork1})` }}
       />
-      <CardHeader className="p-4">
-        <CardTitle className="text-xl">
+      <CardHeader className="lg:p-4 py-2 px-4">
+        <CardTitle className="lg:text-xl text-lg">
           <ResponsiveEllipsis
             text="My Portfolio Details"
             maxLine={1}
@@ -57,21 +57,21 @@ const WorkTeaserCard = () => {
         <Separator className="mt-4" />
       </div>
       <CardFooter className="py-4 px-4 flex items-center">
-        <div className="flex-1 flex items-center">
+        <div className="flex items-center">
           <LinkWithIcon
-            className="text-sm gap-1"
+            className="lg:text-sm text-xs gap-1"
             text="Link"
             link="#"
-            icon={<LinkIcon className="size-4" />}
+            icon={<LinkIcon className="lg:size-4 size-3" />}
           />
         </div>
         <div className="flex-1 flex items-center justify-end">
           <LinkWithIcon
-            className="text-sm gap-1"
+            className="lg:text-sm text-xs gap-1"
             text="Read more"
             link="#"
             variant="right"
-            icon={<ChevronRightDouble className="size-4" />}
+            icon={<ChevronRightDouble className="lg:size-4 size-3" />}
           />
         </div>
       </CardFooter>
