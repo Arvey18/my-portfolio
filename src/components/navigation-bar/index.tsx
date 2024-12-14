@@ -64,12 +64,12 @@ const NavigationBarMenus = () => {
   }, []);
 
   return (
-    <div className="flex-1 flex flex-row items-center gap-6 justify-center">
+    <div className="flex flex-1 px-4 flex-row items-center gap-6 justify-center">
       {MainNavbarMenu.map((value) => {
         const activeMenu = value.label === activeSection;
         return (
           <div
-            className={`cursor-pointer text-base font-medium hover:text-primary ${activeMenu ? 'text-primary' : 'text-muted-foreground'}`}
+            className={`cursor-pointer text-base text-center font-medium hover:text-primary ${activeMenu ? 'text-primary' : 'text-muted-foreground'}`}
             key={`main-nav-${value.label}`}
             onClick={() => clickMenu(value)}
           >
@@ -104,7 +104,7 @@ const NavigationBar = () => {
       initial={{ top: '-100%', opacity: 0 }}
       animate={{ top: '3rem', opacity: 1 }}
       id="main-navigation-bar"
-      className="fixed w-full z-50 top-12 left-0"
+      className="fixed md:block hidden w-full z-50 top-12 left-0 px-4"
     >
       <div className="flex flex-row bg-background rounded-xl w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-5 py-7 border border-solid border-border">
         <div className="flex items-center">

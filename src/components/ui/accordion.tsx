@@ -47,11 +47,11 @@ const AccordionTrigger = React.forwardRef<
     { className, customIconActive, customIconNonActive, children, ...props },
     ref
   ) => (
-    <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Header className="flex w-full">
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          'flex flex-1 items-center justify-between py-4 font-medium transition-all',
+          'flex flex-row w-full items-center py-4 font-medium transition-all',
           !customIconActive && !customIconNonActive
             ? '[&[data-state=open]>svg]:rotate-180'
             : '[&[data-state=open]>.custom-active-icon]:block [&[data-state=closed]>.custom-non-active-icon]:block',
