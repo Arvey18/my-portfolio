@@ -8,9 +8,11 @@ import { motion, AnimatePresence } from 'motion/react';
 
 // layouts
 const MainLayout = lazy(() => import('@/layouts/main-layout'));
+const SubPageLayout = lazy(() => import('@/layouts/sub-page-layout'));
 
 // main pages
 const Home = lazy(() => import('@/pages/home'));
+const Contact = lazy(() => import('@/pages/contact'));
 const NoMatch = lazy(() => import('@/pages/no-match'));
 
 const PageLoader = () => {
@@ -99,6 +101,24 @@ const MainRoute = () => {
             element={
               <Suspense fallback={<div className="h-svh bg-background"></div>}>
                 <Home />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <SubPageLayout />
+            </Suspense>
+          }
+        >
+          <Route
+            index
+            element={
+              <Suspense fallback={<div className="h-svh bg-background"></div>}>
+                <Contact />
               </Suspense>
             }
           />

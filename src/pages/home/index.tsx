@@ -130,8 +130,8 @@ const Home = () => {
               mainTitle="Arvey Jimenez"
               button={{
                 label: 'Contact me',
-                link: '#contact',
-                type: 'scrollTo',
+                link: 'contact',
+                type: 'navigate',
               }}
             >
               A passionate{' '}
@@ -434,8 +434,8 @@ const Home = () => {
             description="I'm always open to new opportunities and collaborations. If you'd like to work together or have any questions, feel free to reach out. I'd love to hear from you!"
             button={{
               label: 'Contact Me',
-              link: '#',
-              type: 'link',
+              link: 'contact',
+              type: 'navigate',
             }}
             icon={<Mail />}
           />

@@ -1,6 +1,8 @@
 import Button from '@/components/ui/button';
 import Mail from '@/assets/svg/mail.svg?react';
 import { TextBlockWithCTAButtonProps } from '@/types/text-block-with-cta-button';
+import { useNavigate } from 'react-router-dom';
+import { scrollToSection, openLink } from '@/lib/utils';
 
 const TextBlockWithCTAButton = ({
   preTitle,
@@ -8,6 +10,20 @@ const TextBlockWithCTAButton = ({
   children,
   button,
 }: TextBlockWithCTAButtonProps) => {
+  const navigate = useNavigate();
+
+  const buttonClick = () => {
+    if (button?.type === 'navigate') {
+      if (button?.link) {
+        navigate(button.link);
+      }
+    } else if (button?.type === 'scrollTo') {
+      scrollToSection(button?.link);
+    } else {
+      openLink({ link: button?.link, target: '_blank' });
+    }
+  };
+
   return (
     <div className="relative w-full">
       <div className="text-5xl font-medium md:text-6xl lg:text-7xl">
@@ -21,7 +37,10 @@ const TextBlockWithCTAButton = ({
       </div>
       {button && (
         <div className="mt-4 md:mt-8">
-          <Button className="h-10 text-sm text-white md:h-12 md:text-lg">
+          <Button
+            onClick={buttonClick}
+            className="h-10 text-sm text-white md:h-12 md:text-lg"
+          >
             <Mail className="size-14 md:size-20" />
             {button.label}
           </Button>
