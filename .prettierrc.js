@@ -10,4 +10,5 @@ export default {
   endOfLine: 'auto', // Maintain existing line endings
   jsxSingleQuote: false, // Use double quotes in JSX
   htmlWhitespaceSensitivity: 'css', // Respect CSS display property for HTML whitespace
+  plugins: ['prettier-plugin-tailwindcss'],
 };

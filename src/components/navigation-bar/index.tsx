@@ -64,12 +64,12 @@ const NavigationBarMenus = () => {
   }, []);
 
   return (
-    <div className="flex flex-1 px-4 flex-row items-center gap-6 justify-center">
+    <div className="flex flex-1 flex-row items-center justify-center gap-6 px-4">
       {MainNavbarMenu.map((value) => {
         const activeMenu = value.label === activeSection;
         return (
           <div
-            className={`cursor-pointer text-base text-center font-medium hover:text-primary ${activeMenu ? 'text-primary' : 'text-muted-foreground'}`}
+            className={`cursor-pointer text-center text-base font-medium hover:text-primary ${activeMenu ? 'text-primary' : 'text-muted-foreground'}`}
             key={`main-nav-${value.label}`}
             onClick={() => clickMenu(value)}
           >
@@ -104,9 +104,9 @@ const NavigationBar = () => {
       initial={{ top: '-100%', opacity: 0 }}
       animate={{ top: '3rem', opacity: 1 }}
       id="main-navigation-bar"
-      className="fixed md:block hidden w-full z-50 top-12 left-0 px-4"
+      className="fixed left-0 top-12 z-50 hidden w-full px-4 md:block"
     >
-      <div className="flex flex-row bg-background rounded-xl w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-5 py-7 border border-solid border-border">
+      <div className="mx-auto flex w-full max-w-full flex-row rounded-xl border border-solid border-border bg-background px-5 py-7 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
         <div className="flex items-center">
           {themeStyle === 'light' ? (
             <img className="max-h-[40px]" src={LogoDark} alt="logo-dark" />

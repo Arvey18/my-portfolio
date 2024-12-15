@@ -51,10 +51,10 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          'flex flex-row w-full items-center py-4 font-medium transition-all',
+          'flex w-full flex-row items-center py-4 font-medium transition-all',
           !customIconActive && !customIconNonActive
             ? '[&[data-state=open]>svg]:rotate-180'
-            : '[&[data-state=open]>.custom-active-icon]:block [&[data-state=closed]>.custom-non-active-icon]:block',
+            : '[&[data-state=closed]>.custom-non-active-icon]:block [&[data-state=open]>.custom-active-icon]:block',
 
           className
         )}

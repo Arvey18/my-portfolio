@@ -28,29 +28,29 @@ const Home = () => {
     <>
       <section
         id="home"
-        className="relative px-4 h-svh w-full bg-background flex md:min-[992px]:items-center items-center overflow-hidden md:pt-20 md:pb-4"
+        className="relative flex h-svh w-full items-center overflow-hidden bg-background px-4 md:min-[992px]:pt-20 md:min-[992px]:items-center"
       >
-        <div className="absolute z-0 top-0 left-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] inline-block rounded-full md:w-[700px] w-[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-550px] left-[-550px] md:min-[992px]:inline-block hidden rounded-full w-[1100px] h-[1100px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute left-0 top-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+          <span className="absolute left-[-200px] top-[-200px] inline-block h-[400px] w-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px]" />
+          <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+          <span className="absolute left-[-550px] top-[-550px] hidden h-[1100px] w-[1100px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
 
-        <div className="absolute z-0 bottom-0 right-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-150px] left-[-150px] inline-block rounded-full w-[300px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-250px] left-[-250px] md:min-[992px]:inline-block hidden rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-350px] left-[-350px] md:min-[992px]:inline-block hidden rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute bottom-0 right-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-250px] top-[-250px] hidden h-[500px] w-[500px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+          <span className="absolute left-[-350px] top-[-350px] hidden h-[700px] w-[700px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
-        <div className="z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl md:min-[992px]:mx-auto flex md:min-[992px]:flex-row flex-col md:min-[992px]:gap-8 md:min-[992px]:items-center">
+        <div className="z-10 flex w-full max-w-full flex-col md:min-[992px]:mx-auto md:min-[992px]:items-center md:min-[992px]:gap-8 md:min-[992px]:flex-row xl:max-w-screen-xl 2xl:max-w-screen-2xl">
           <motion.div
             initial={{ opacity: 0, top: '2rem' }}
             whileInView={{ opacity: 1, top: '0rem' }}
             viewport={{ once: true, amount: 0.5 }}
-            className="flex-1 "
+            className="relative z-10 flex-1"
           >
             <TextBlockWithCTAButton
               preTitle="Hi, I'm"
@@ -62,38 +62,38 @@ const Home = () => {
               }}
             >
               A passionate{' '}
-              <span className="text-primary font-semibold">
+              <span className="font-semibold text-primary">
                 {'<Web Developer />'}
               </span>
               , with a long time experience creating user friendly websites or
               webapps.
             </TextBlockWithCTAButton>
           </motion.div>
-          <div className="flex-1 flex justify-end">
+          <div className="flex flex-1 justify-end">
             <motion.img
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               src={GraphicsWebDevelopment2}
               alt="graphics-web-development-2"
-              className="md:min-[992px]:w-full max-h-full md:w-[65%] w-[300px] md:mt-0 mt-10 md:relative absolute bottom-0 right-0"
+              className="absolute bottom-0 right-0 mt-10 max-h-full w-[250px] md:mt-0 md:min-[992px]:w-full md:min-[992px]:relative"
             />
           </div>
         </div>
       </section>
       <section
         id="about-me"
-        className="relative px-4 w-full bg-background overflow-hidden"
+        className="relative w-full overflow-hidden bg-background px-4"
       >
-        <div className="absolute z-0 bottom-0 left-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] inline-block rounded-full md:w-[700px] w:[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute bottom-0 left-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+          <span className="w:[400px] absolute left-[-200px] top-[-200px] inline-block h-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px]" />
+          <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
-        <div className="relative z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20 grid grid-cols-12">
-          <div className="md:col-span-4 col-span-12 flex justify-center items-start md:order-0 order-1 md:mt-0 mt-12">
+        <div className="relative z-10 mx-auto grid w-full max-w-full grid-cols-12 py-20 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
+          <div className="md:order-0 order-1 col-span-12 mt-12 flex items-start justify-center md:col-span-4 md:mt-0">
             <div className="relative flex flex-col">
               <div>
                 <motion.img
@@ -101,11 +101,11 @@ const Home = () => {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true, amount: 0.5 }}
                   src={GraphicsWebDevelopment}
-                  className="md:w-full w-[80%] mx-auto"
+                  className="mx-auto w-[80%] md:w-full"
                   alt="graphics-web-development"
                 />
               </div>
-              <div className="flex justify-center mt-4">
+              <div className="mt-4 flex justify-center">
                 <div className="flex flex-row items-center gap-2">
                   {socialMedias.map((value, key) => {
                     const incrementedValue =
@@ -145,7 +145,7 @@ const Home = () => {
                 : { opacity: 1, left: '0rem' }
             }
             viewport={{ once: true, amount: 0.5 }}
-            className="relative md:col-span-8 col-span-12 flex items-center md:order-1 order-0"
+            className="order-0 relative col-span-12 flex items-center md:order-1 md:col-span-8"
           >
             <SectionHeadline
               key="about-me-section-headline"
@@ -175,16 +175,16 @@ const Home = () => {
       </section>
       <section
         id="skills"
-        className="relative px-4 w-full bg-background overflow-hidden"
+        className="relative w-full overflow-hidden bg-background px-4"
       >
-        <div className="absolute z-0 bottom-0 right-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] md:min-[992px]:inline-block hidden rounded-full md:w-[700px] w:[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute bottom-0 right-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+          <span className="w:[400px] absolute left-[-200px] top-[-200px] hidden h-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px] md:min-[992px]:inline-block" />
+          <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
-        <div className="relative z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20">
+        <div className="relative z-10 mx-auto w-full max-w-full py-20 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
           <motion.div
             initial={{ opacity: 0, top: '2rem' }}
             whileInView={{ opacity: 1, top: '0rem' }}
@@ -197,7 +197,7 @@ const Home = () => {
               mainTitle="The skills, tools and technologies I am currently using:"
             />
           </motion.div>
-          <div className="relative max-w-5xl mx-auto mt-12 flex flex-row flex-wrap gap-14 justify-center">
+          <div className="relative mx-auto mt-12 flex max-w-5xl flex-row flex-wrap justify-center gap-14">
             {skillsData.map((value, key) => {
               const incrementedValue = key === 0 ? 0 : 0.1 + (key - 1) * 0.1;
               return (
@@ -220,16 +220,16 @@ const Home = () => {
       </section>
       <section
         id="work"
-        className="relative px-4 w-full bg-background overflow-hidden"
+        className="relative w-full overflow-hidden bg-background px-4"
       >
-        <div className="absolute z-0 bottom-0 left-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] md:min-[992px]:inline-block hidden rounded-full md:w-[700px] w:[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute bottom-0 left-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+          <span className="w:[400px] absolute left-[-200px] top-[-200px] hidden h-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px] md:min-[992px]:inline-block" />
+          <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
-        <div className="relative z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20">
+        <div className="relative z-10 mx-auto w-full max-w-full py-20 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
           <motion.div
             initial={{ opacity: 0, top: '2rem' }}
             whileInView={{ opacity: 1, top: '0rem' }}
@@ -242,7 +242,7 @@ const Home = () => {
               mainTitle="Things I can share"
             />
           </motion.div>
-          <div className="relative max-w-5xl mx-auto mt-12 grid grid-cols-12 gap-8">
+          <div className="relative mx-auto mt-12 grid max-w-5xl grid-cols-12 gap-8">
             {Array(3)
               .fill(null)
               .map((_value, key) => {
@@ -267,16 +267,16 @@ const Home = () => {
       </section>
       <section
         id="experience"
-        className="relative px-4 w-full bg-background overflow-hidden"
+        className="relative w-full overflow-hidden bg-background px-4"
       >
-        <div className="absolute z-0 bottom-0 right-0">
-          <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] md:min-[992px]:inline-block hidden rounded-full md:w-[700px] w:[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-          <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
+        <div className="absolute bottom-0 right-0 z-0">
+          <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+          <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+          <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+          <span className="w:[400px] absolute left-[-200px] top-[-200px] hidden h-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px] md:min-[992px]:inline-block" />
+          <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         </div>
-        <div className="relative z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20">
+        <div className="relative z-10 mx-auto w-full max-w-full py-20 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
           <motion.div
             initial={{ opacity: 0, top: '2rem' }}
             whileInView={{ opacity: 1, top: '0rem' }}
@@ -292,7 +292,7 @@ const Home = () => {
           <Accordion
             type="multiple"
             defaultValue={[workExperience[0].id]}
-            className="w-full mt-12"
+            className="mt-12 w-full"
           >
             {workExperience.map((work, key) => {
               const incrementedValue = key === 0 ? 0 : 0.1 + (key - 1) * 0.1;
@@ -309,23 +309,23 @@ const Home = () => {
                 >
                   <AccordionItem
                     value={work.id}
-                    className="bg-background border-solid border border-border rounded-xl px-4 mb-4"
+                    className="mb-4 rounded-xl border border-solid border-border bg-background px-4"
                   >
                     <AccordionTrigger
                       customIconActive={
-                        <MinusIcon className="lg:size-8 size-6 text-primary" />
+                        <MinusIcon className="size-6 text-primary lg:size-8" />
                       }
                       customIconNonActive={
-                        <PlusIcon className="lg:size-8 size-6 text-primary" />
+                        <PlusIcon className="size-6 text-primary lg:size-8" />
                       }
                     >
-                      <div className="flex-1 pr-4 no-underline text-left lg:text-xl text-lg font-semibold">
+                      <div className="flex-1 pr-4 text-left text-lg font-semibold no-underline lg:text-xl">
                         {work.work_title} @ {work.company}
-                        <div className="text-left text-sm text-muted-foreground font-semibold mt-2 lg:hidden block">
+                        <div className="mt-2 block text-left text-sm font-semibold text-muted-foreground lg:hidden">
                           {work.work_duration}
                         </div>
                       </div>
-                      <div className="text-left lg:text-xl text-base font-semibold pr-2 lg:block hidden">
+                      <div className="hidden pr-2 text-left text-base font-semibold lg:block lg:text-xl">
                         {work.work_duration}
                       </div>
                     </AccordionTrigger>
@@ -342,13 +342,13 @@ const Home = () => {
       </section>
       <section
         id="contact-banner"
-        className="relative px-4 w-full bg-background"
+        className="relative w-full bg-background px-4"
       >
         <motion.div
           initial={{ opacity: 0, top: '2rem' }}
           whileInView={{ opacity: 1, top: '0rem' }}
           viewport={{ once: true, amount: 0.5 }}
-          className="relative w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-20 md:mb-60 mb-20"
+          className="relative mx-auto mb-20 w-full max-w-full py-20 md:mb-60 xl:max-w-screen-xl 2xl:max-w-screen-2xl"
         >
           <BannerBlock
             title="Get in Touch"

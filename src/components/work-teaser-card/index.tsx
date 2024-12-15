@@ -23,11 +23,11 @@ const WorkTeaserCard = () => {
   return (
     <Card className="overflow-hidden rounded-xl">
       <div
-        className="relative lg:h-56 h-36 bg-no-repeat bg-cover bg-top"
+        className="relative h-36 bg-cover bg-top bg-no-repeat lg:h-56"
         style={{ backgroundImage: `url(${SampleWork1})` }}
       />
-      <CardHeader className="lg:p-4 py-2 px-4">
-        <CardTitle className="lg:text-xl text-lg">
+      <CardHeader className="px-4 py-2 lg:p-4">
+        <CardTitle className="text-lg lg:text-xl">
           <ResponsiveEllipsis
             text="My Portfolio Details"
             maxLine={1}
@@ -47,7 +47,7 @@ const WorkTeaserCard = () => {
             basedOn="letters"
           />
         </CardDescription>
-        <div className="flex flex-row flex-wrap gap-2 mt-4">
+        <div className="mt-4 flex flex-row flex-wrap gap-2">
           <Tags text="HTML" />
           <Tags text="HTML" />
           <Tags text="HTML" />
@@ -56,22 +56,22 @@ const WorkTeaserCard = () => {
       <div className="px-4">
         <Separator className="mt-4" />
       </div>
-      <CardFooter className="py-4 px-4 flex items-center">
+      <CardFooter className="flex items-center px-4 py-4">
         <div className="flex items-center">
           <LinkWithIcon
-            className="lg:text-sm text-xs gap-1"
+            className="gap-1 text-xs lg:text-sm"
             text="Link"
             link="#"
-            icon={<LinkIcon className="lg:size-4 size-3" />}
+            icon={<LinkIcon className="size-3 lg:size-4" />}
           />
         </div>
-        <div className="flex-1 flex items-center justify-end">
+        <div className="flex flex-1 items-center justify-end">
           <LinkWithIcon
-            className="lg:text-sm text-xs gap-1"
+            className="gap-1 text-xs lg:text-sm"
             text="Read more"
             link="#"
             variant="right"
-            icon={<ChevronRightDouble className="lg:size-4 size-3" />}
+            icon={<ChevronRightDouble className="size-3 lg:size-4" />}
           />
         </div>
       </CardFooter>

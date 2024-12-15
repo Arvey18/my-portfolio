@@ -14,20 +14,20 @@ const SectionHeadline = ({
         : 'justify-center text-center';
 
   return (
-    <div className={`relative flex flex-col w-full ${alignmentClass}`}>
-      <div className={`flex mb-4 ${alignmentClass}`}>
-        <div className="md:px-5 px-4 md:py-3 py-2 lg:text-lg text-base bg-secondary rounded-md inline-flex uppercase">
+    <div className={`relative flex w-full flex-col ${alignmentClass}`}>
+      <div className={`mb-4 flex ${alignmentClass}`}>
+        <div className="inline-flex rounded-md bg-secondary px-4 py-2 text-base uppercase md:px-5 md:py-3 lg:text-lg">
           {preTitle}
         </div>
       </div>
       <div
-        className={`flex text-primary lg:text-4xl text-3xl font-semibold ${alignmentClass}`}
+        className={`flex text-3xl font-semibold text-primary lg:text-4xl ${alignmentClass}`}
       >
         <div className="max-w-screen-md">{mainTitle}</div>
       </div>
       {children && (
         <div
-          className={`flex text-muted-foreground lg:text-xl text-lg mt-4 ${alignmentClass}`}
+          className={`mt-4 flex text-lg text-muted-foreground lg:text-xl ${alignmentClass}`}
         >
           {children}
         </div>

@@ -6,7 +6,7 @@ const SocialMediaButton = ({ icon, link }: SocialMedia) => {
   return (
     <Button
       onClick={() => openLink({ ...link })}
-      className="rounded-full p-2 h-auto text-white"
+      className="h-auto rounded-full p-2 text-white"
     >
       {icon}
     </Button>
