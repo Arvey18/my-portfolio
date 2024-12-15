@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import TextBlockWithCTAButton from '@/components/text-block-with-cta-button';
 import BannerBlock from '@/components/banner-block';
 import {
@@ -6,6 +7,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
 import WorkDetails from '@/components/work-details/index';
 import { workExperience } from '@/constants/work-experience';
@@ -22,6 +28,72 @@ import { socialMedias } from '@/constants/social-media';
 import WorkTeaserCard from '@/components/work-teaser-card';
 import { motion } from 'motion/react';
 import useSettingsStore from '@/stores/settings';
+import { CarouselApi } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+
+const WorkCarousel = () => {
+  const isMobile = useSettingsStore((state) => state.isMobile);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, top: '2rem' }}
+      whileInView={{ opacity: 1, top: '0rem' }}
+      viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
+      className="relative mt-12"
+    >
+      <Carousel
+        opts={{
+          loop: true,
+        }}
+        setApi={setApi}
+      >
+        <CarouselContent>
+          {Array(3)
+            .fill(null)
+            .map((_value, key) => {
+              return (
+                <CarouselItem key={`work-teaser-card-${key}`}>
+                  <WorkTeaserCard />
+                </CarouselItem>
+              );
+            })}
+        </CarouselContent>
+      </Carousel>
+      <div className="mt-4 flex flex-row justify-center gap-2">
+        {Array(count)
+          .fill(null)
+          .map((_value, key) => {
+            return (
+              <div
+                className={cn(
+                  'h-[10px] w-[10px] rounded-full bg-muted-foreground',
+                  current === key && 'bg-primary'
+                )}
+                onClick={() => api?.scrollTo(key)}
+                key={`work-teaser-card-${key}`}
+              ></div>
+            );
+          })}
+      </div>
+    </motion.div>
+  );
+};
 
 const Home = () => {
   const isMobile = useSettingsStore((state) => state.isMobile);
@@ -243,27 +315,33 @@ const Home = () => {
               mainTitle="Things I can share"
             />
           </motion.div>
-          <div className="relative mx-auto mt-12 grid max-w-5xl grid-cols-12 gap-8">
-            {Array(3)
-              .fill(null)
-              .map((_value, key) => {
-                const incrementedValue = key === 0 ? 0 : 0.1 + (key - 1) * 0.1;
-                return (
-                  <motion.div
-                    key={`work-teaser-card-${key}`}
-                    initial={{ opacity: 0, top: '1rem' }}
-                    whileInView={{ opacity: 1, top: '0rem' }}
-                    viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
-                    transition={{
-                      delay: parseFloat(incrementedValue.toFixed(1)),
-                    }}
-                    className="relative col-span-4"
-                  >
-                    <WorkTeaserCard />
-                  </motion.div>
-                );
-              })}
-          </div>
+
+          {isMobile ? (
+            <WorkCarousel />
+          ) : (
+            <div className="relative mx-auto mt-12 grid max-w-5xl grid-cols-12 gap-8">
+              {Array(3)
+                .fill(null)
+                .map((_value, key) => {
+                  const incrementedValue =
+                    key === 0 ? 0 : 0.1 + (key - 1) * 0.1;
+                  return (
+                    <motion.div
+                      key={`work-teaser-card-${key}`}
+                      initial={{ opacity: 0, top: '1rem' }}
+                      whileInView={{ opacity: 1, top: '0rem' }}
+                      viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
+                      transition={{
+                        delay: parseFloat(incrementedValue.toFixed(1)),
+                      }}
+                      className="relative col-span-4"
+                    >
+                      <WorkTeaserCard />
+                    </motion.div>
+                  );
+                })}
+            </div>
+          )}
         </div>
       </section>
       <section
