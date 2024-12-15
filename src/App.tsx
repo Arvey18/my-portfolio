@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import '@/configs/i18n';
 import MainRoute from '@/configs/main-route';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import useSettingsStore from '@/stores/settings';
 import { Theme } from '@/types/theme';
 
 type ThemeDefaultValue = {
@@ -14,6 +15,7 @@ function App() {
   const [themeValue] = useLocalStorage<ThemeDefaultValue>('theme', {
     state: { style: 'light', changeTheme: () => {} },
   });
+  const updateIsMobile = useSettingsStore((state) => state.updateIsMobile);
 
   useEffect(() => {
     document.documentElement.className = '';
@@ -22,6 +24,16 @@ function App() {
     );
     console.log('initial theme');
   }, [themeValue]);
+
+  const onWindowResize = useCallback(() => {
+    const isMobile = window.innerWidth < 768;
+    updateIsMobile(isMobile);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', onWindowResize);
+    return () => window.removeEventListener('resize', onWindowResize);
+  }, []);
 
   return (
     <div data-testid="app-container" className="relative">

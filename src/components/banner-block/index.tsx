@@ -1,5 +1,7 @@
 import Button from '@/components/ui/button';
 import { BannerBlockProps } from '@/types/banner-block';
+import { useNavigate } from 'react-router-dom';
+import { scrollToSection, openLink } from '@/lib/utils';
 
 const BannerBlock = ({
   title,
@@ -7,6 +9,20 @@ const BannerBlock = ({
   button,
   icon,
 }: BannerBlockProps) => {
+  const navigate = useNavigate();
+
+  const buttonClick = () => {
+    if (button?.type === 'navigate') {
+      if (button?.link) {
+        navigate(button.link);
+      }
+    } else if (button?.type === 'scrollTo') {
+      scrollToSection(button?.link);
+    } else {
+      openLink({ link: button?.link, target: '_blank' });
+    }
+  };
+
   return (
     <div className="relative flex w-full flex-col items-center overflow-hidden rounded-3xl bg-primaryColor px-8 py-12 md:flex-row md:gap-8 lg:px-12 lg:py-16">
       <div className="absolute left-1/2 top-0 z-0 translate-x-[-50%]">
@@ -24,7 +40,10 @@ const BannerBlock = ({
         <div className="mx-auto inline-flex max-w-xl">{description}</div>
       </div>
       <div className="relative z-10">
-        <Button className="h-auto py-2 text-base lg:py-3 lg:text-xl">
+        <Button
+          onClick={buttonClick}
+          className="h-auto py-2 text-base lg:py-3 lg:text-xl"
+        >
           {icon}
           {button.label}
         </Button>

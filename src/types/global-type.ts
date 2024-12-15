@@ -17,3 +17,7 @@ export type Image = {
 export type Icon = {
   icon?: ReactNode;
 };
+
+export type Callback = {
+  callback?: () => void;
+};

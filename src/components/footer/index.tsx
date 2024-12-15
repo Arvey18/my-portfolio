@@ -1,12 +1,9 @@
-import useThemeStore from '@/stores/theme';
-import LogoWhite from '@/assets/images/logo-white.png';
-import LogoDark from '@/assets/images/logo-dark.png';
 import SocialMediaButton from '@/components/ui/social-media';
 import { socialMedias } from '@/constants/social-media';
 import { motion } from 'motion/react';
+import Logo from '@/components/ui/logo';
 
 const Footer = () => {
-  const themeStyle = useThemeStore((state) => state.style);
   return (
     <footer className="relative overflow-hidden bg-background px-4">
       <div className="relative mx-auto flex w-full max-w-full flex-col gap-4 border-t border-solid border-border py-7 md:flex-row md:gap-8 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
@@ -16,11 +13,7 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="relative flex justify-center md:justify-start"
         >
-          {themeStyle === 'light' ? (
-            <img className="max-h-[40px]" src={LogoDark} alt="logo-dark" />
-          ) : (
-            <img className="max-h-[40px]" src={LogoWhite} alt="logo-white" />
-          )}
+          <Logo className="text-3xl" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, top: '2rem' }}

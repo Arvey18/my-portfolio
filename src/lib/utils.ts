@@ -7,10 +7,15 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function scrollToSection(id: string) {
+  const isMobile = window.innerWidth < 768;
   const section = document.getElementById(id.replace('#', ''));
-  const mainNav = document.getElementById('main-navigation-bar') as HTMLElement;
+  const mainNav = document.getElementById(
+    isMobile ? 'main-navigation-bar-mobile' : 'main-navigation-bar'
+  ) as HTMLElement;
   const mainNavBoundingClient = mainNav.getBoundingClientRect();
-  const headerHeight = mainNavBoundingClient.height + mainNavBoundingClient.top;
+  const headerHeight = isMobile
+    ? mainNavBoundingClient.height / 2
+    : mainNavBoundingClient.height + mainNavBoundingClient.top;
 
   if (section) {
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;

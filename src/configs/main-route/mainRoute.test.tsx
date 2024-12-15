@@ -7,6 +7,10 @@ vi.mock('@/pages/home', () => ({
   default: () => <div>Home Page</div>,
 }));
 
+vi.mock('@/pages/contact', () => ({
+  default: () => <div>Contact Page</div>,
+}));
+
 vi.mock('@/pages/no-match', () => ({
   default: () => <div>Page not Found!</div>,
 }));
@@ -16,6 +20,16 @@ describe('Main Route', () => {
     await act(async () => {
       render(
         <MemoryRouter initialEntries={['/']}>
+          <MainRoute />
+        </MemoryRouter>
+      );
+    });
+  });
+
+  it('renders the Contact page at the root route', async () => {
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/contact']}>
           <MainRoute />
         </MemoryRouter>
       );
