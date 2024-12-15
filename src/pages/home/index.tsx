@@ -28,7 +28,7 @@ const Home = () => {
     <>
       <section
         id="home"
-        className="relative px-4 h-svh w-full bg-background flex md:min-[992px]:items-center items-end overflow-hidden pt-20 pb-4"
+        className="relative px-4 h-svh w-full bg-background flex md:min-[992px]:items-center items-center overflow-hidden md:pt-20 md:pb-4"
       >
         <div className="absolute z-0 top-0 left-0">
           <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
@@ -45,7 +45,7 @@ const Home = () => {
           <span className="absolute opacity-10 top-[-250px] left-[-250px] md:min-[992px]:inline-block hidden rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
           <span className="absolute opacity-10 top-[-350px] left-[-350px] md:min-[992px]:inline-block hidden rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
         </div>
-        <div className="relative z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl md:min-[992px]:mx-auto flex md:min-[992px]:flex-row flex-col md:min-[992px]:gap-8 md:min-[992px]:items-center">
+        <div className="z-10 w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl md:min-[992px]:mx-auto flex md:min-[992px]:flex-row flex-col md:min-[992px]:gap-8 md:min-[992px]:items-center">
           <motion.div
             initial={{ opacity: 0, top: '2rem' }}
             whileInView={{ opacity: 1, top: '0rem' }}
@@ -76,7 +76,7 @@ const Home = () => {
               viewport={{ once: true, amount: 0.5 }}
               src={GraphicsWebDevelopment2}
               alt="graphics-web-development-2"
-              className="md:min-[992px]:w-full max-h-full md:w-[65%] w-full md:mt-0 mt-10"
+              className="md:min-[992px]:w-full max-h-full md:w-[65%] w-[300px] md:mt-0 mt-10 md:relative absolute bottom-0 right-0"
             />
           </div>
         </div>
