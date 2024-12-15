@@ -149,7 +149,7 @@ const Home = () => {
               viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
               src={GraphicsWebDevelopment2}
               alt="graphics-web-development-2"
-              className="absolute bottom-4 right-0 mt-10 max-h-full w-[250px] md:bottom-0 md:mt-0 md:min-[992px]:w-full md:min-[992px]:relative"
+              className="absolute bottom-4 right-0 mt-10 max-h-full w-[200px] md:bottom-0 md:mt-0 md:min-[992px]:w-full md:min-[992px]:relative"
             />
           </div>
         </div>
