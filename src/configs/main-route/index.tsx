@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import CircleUpArrow from '@/assets/svg/circle-up-arrow.svg?react';
 import PageLoaderGIF from '@/assets/images/page-loader.gif';
 import { scrollToTop } from '@/lib/utils';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 // layouts
 const MainLayout = lazy(() => import('@/layouts/main-layout'));
@@ -65,16 +65,19 @@ const BackToTopButton = () => {
   }, []);
 
   return (
-    isVisible && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        onClick={() => scrollToTop()}
-        className="fixed bottom-4 right-4 z-50 cursor-pointer rounded-full bg-background text-primary md:bottom-28 2xl:min-[1700px]:bottom-4"
-      >
-        <CircleUpArrow className="size-12 lg:size-16" />
-      </motion.div>
-    )
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => scrollToTop()}
+          exit={{ opacity: 0 }}
+          className="fixed bottom-4 right-4 z-40 cursor-pointer rounded-full bg-background text-primary md:bottom-28 2xl:min-[1700px]:bottom-4"
+        >
+          <CircleUpArrow className="size-12 lg:size-16" />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

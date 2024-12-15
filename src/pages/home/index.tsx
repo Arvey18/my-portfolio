@@ -21,9 +21,10 @@ import SocialMediaButton from '@/components/ui/social-media';
 import { socialMedias } from '@/constants/social-media';
 import WorkTeaserCard from '@/components/work-teaser-card';
 import { motion } from 'motion/react';
+import useSettingsStore from '@/stores/settings';
 
 const Home = () => {
-  let isMobile = window.innerWidth < 768;
+  const isMobile = useSettingsStore((state) => state.isMobile);
   return (
     <>
       <section
