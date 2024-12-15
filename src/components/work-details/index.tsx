@@ -14,25 +14,25 @@ interface WorkDetailsProps {
 const WorkDetails = ({ data, children }: WorkDetailsProps) => {
   return (
     <div className="w-full">
-      <div className="flex md:flex-row flex-col gap-4 mb-4">
+      <div className="mb-4 flex flex-col gap-4 md:flex-row">
         <LinkWithIcon
           key="location-work-details-link-with-icon"
           text={data.location}
-          icon={<Location className="lg:size-6 size-4" />}
+          icon={<Location className="size-4 lg:size-6" />}
         />
         <LinkWithIcon
           key="link-work-details-link-with-icon"
           text={data.company_url.label}
           link={data.company_url.link}
-          icon={<LinkIcon className="lg:size-6 size-4" />}
+          icon={<LinkIcon className="size-4 lg:size-6" />}
         />
         <LinkWithIcon
           key="work-type-work-details-link-with-icon"
           text={data.work_type}
-          icon={<Work className="lg:size-6 size-4" />}
+          icon={<Work className="size-4 lg:size-6" />}
         />
       </div>
-      <div className="lg:text-base text-sm mb-6">{children}</div>
+      <div className="mb-6 text-sm lg:text-base">{children}</div>
       <div className="flex flex-row flex-wrap gap-2">
         {data.tags.map((value) => (
           <Tags key={data.id + value} text={value} />

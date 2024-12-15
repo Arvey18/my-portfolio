@@ -8,13 +8,13 @@ import { motion } from 'motion/react';
 const Footer = () => {
   const themeStyle = useThemeStore((state) => state.style);
   return (
-    <footer className="relative px-4 bg-background overflow-hidden">
-      <div className="relative flex md:flex-row flex-col border-t border-solid border-border w-full max-w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto py-7 md:gap-8 gap-4">
+    <footer className="relative overflow-hidden bg-background px-4">
+      <div className="relative mx-auto flex w-full max-w-full flex-col gap-4 border-t border-solid border-border py-7 md:flex-row md:gap-8 xl:max-w-screen-xl 2xl:max-w-screen-2xl">
         <motion.div
           initial={{ opacity: 0, top: '2rem' }}
           whileInView={{ opacity: 1, top: '0rem' }}
           viewport={{ once: true, amount: 0.5 }}
-          className="relative flex md:justify-start justify-center"
+          className="relative flex justify-center md:justify-start"
         >
           {themeStyle === 'light' ? (
             <img className="max-h-[40px]" src={LogoDark} alt="logo-dark" />
@@ -26,15 +26,15 @@ const Footer = () => {
           initial={{ opacity: 0, top: '2rem' }}
           whileInView={{ opacity: 1, top: '0rem' }}
           viewport={{ once: true, amount: 0.5 }}
-          className="relative flex-1 flex md:flex-row flex-col items-center justify-end md:gap-8 gap-0"
+          className="relative flex flex-1 flex-col items-center justify-end gap-0 md:flex-row md:gap-8"
         >
-          <div className="lg:text-lg text-base text-muted-foreground font-medium">
+          <div className="text-base font-medium text-muted-foreground lg:text-lg">
             +63 927 944 1822
           </div>
-          <div className="lg:text-lg text-base text-muted-foreground font-medium">
+          <div className="text-base font-medium text-muted-foreground lg:text-lg">
             arve505@gmail.com
           </div>
-          <div className="flex flex-row items-center gap-2 md:mt-0 mt-12">
+          <div className="mt-12 flex flex-row items-center gap-2 md:mt-0">
             {socialMedias.map((value) => (
               <div key={value.id}>
                 <SocialMediaButton

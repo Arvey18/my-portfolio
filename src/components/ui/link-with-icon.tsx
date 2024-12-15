@@ -26,7 +26,7 @@ const LinkWithIcon = ({
     <div
       onClick={() => clickLink()}
       className={cn(
-        'inline-flex flex-row items-center gap-2 text-muted-foreground lg:text-base text-sm font-medium',
+        'inline-flex flex-row items-center gap-2 text-sm font-medium text-muted-foreground lg:text-base',
         link && 'cursor-pointer hover:text-primary',
         className
       )}

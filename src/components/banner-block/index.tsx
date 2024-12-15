@@ -8,23 +8,23 @@ const BannerBlock = ({
   icon,
 }: BannerBlockProps) => {
   return (
-    <div className="relative overflow-hidden bg-primaryColor w-full rounded-3xl lg:px-12 px-8 lg:py-16 py-12 flex md:flex-row flex-col items-center md:gap-8">
-      <div className="absolute z-0 top-0 left-1/2 translate-x-[-50%]">
-        <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-150px] left-[-150px] inline-block rounded-full w-[300px] h-[300px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-250px] left-[-250px] inline-block rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-350px] left-[-350px] md:min-[992px]:inline-block hidden rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-550px] left-[-550px] md:min-[992px]:inline-block hidden rounded-full w-[1100px] h-[1100px] border-solid border-2 border-muted-foreground" />
+    <div className="relative flex w-full flex-col items-center overflow-hidden rounded-3xl bg-primaryColor px-8 py-12 md:flex-row md:gap-8 lg:px-12 lg:py-16">
+      <div className="absolute left-1/2 top-0 z-0 translate-x-[-50%]">
+        <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-250px] top-[-250px] inline-block h-[500px] w-[500px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-350px] top-[-350px] hidden h-[700px] w-[700px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+        <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+        <span className="absolute left-[-550px] top-[-550px] hidden h-[1100px] w-[1100px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
       </div>
-      <div className="relative z-10 text-white lg:text-4xl text-3xl font-semibold text-center">
+      <div className="relative z-10 text-center text-3xl font-semibold text-white lg:text-4xl">
         {title}
       </div>
-      <div className="relative z-10 flex-1 text-center text-white lg:text-lg text-base md:mt-0 mt-4 md:mb-2 mb-8">
-        <div className="inline-flex mx-auto max-w-xl">{description}</div>
+      <div className="relative z-10 mb-8 mt-4 flex-1 text-center text-base text-white md:mb-2 md:mt-0 lg:text-lg">
+        <div className="mx-auto inline-flex max-w-xl">{description}</div>
       </div>
       <div className="relative z-10">
-        <Button className="lg:text-xl text-base h-auto lg:py-3 py-2">
+        <Button className="h-auto py-2 text-base lg:py-3 lg:text-xl">
           {icon}
           {button.label}
         </Button>

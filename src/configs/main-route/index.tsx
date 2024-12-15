@@ -15,27 +15,27 @@ const NoMatch = lazy(() => import('@/pages/no-match'));
 
 const PageLoader = () => {
   return (
-    <div className="relative h-svh bg-background flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute z-0 top-0 left-0">
-        <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 md:top-[-150px] top-[-100px] md:left-[-150px] left-[-100px] inline-block rounded-full md:w-[300px] w-[200px] md:h-[300px] h-[200px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 md:top-[-250px] top-[-150px] md:left-[-250px] left-[-150px] inline-block rounded-full md:w-[500px] w-[300px] md:h-[500px] h-[300px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 md:top-[-350px] top-[-200px] md:left-[-350px] left-[-200px] inline-block rounded-full md:w-[700px] w-[400px] md:h-[700px] h-[400px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-450px] left-[-450px] md:min-[992px]:inline-block hidden rounded-full w-[900px] h-[900px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-550px] left-[-550px] md:min-[992px]:inline-block hidden rounded-full w-[1100px] h-[1100px] border-solid border-2 border-muted-foreground" />
+    <div className="relative flex h-svh flex-col items-center justify-center overflow-hidden bg-background">
+      <div className="absolute left-0 top-0 z-0">
+        <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-100px] top-[-100px] inline-block h-[200px] w-[200px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-150px] md:top-[-150px] md:h-[300px] md:w-[300px]" />
+        <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-250px] md:top-[-250px] md:h-[500px] md:w-[500px]" />
+        <span className="absolute left-[-200px] top-[-200px] inline-block h-[400px] w-[400px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:left-[-350px] md:top-[-350px] md:h-[700px] md:w-[700px]" />
+        <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+        <span className="absolute left-[-550px] top-[-550px] hidden h-[1100px] w-[1100px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
       </div>
 
-      <div className="absolute z-0 bottom-0 right-0">
-        <span className="absolute opacity-10 top-[-50px] left-[-50px] inline-block rounded-full w-[100px] h-[100px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-150px] left-[-150px] inline-block rounded-full w-[300px] h-[300px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-250px] left-[-250px] md:min-[992px]:inline-block hidden rounded-full w-[500px] h-[500px] border-solid border-2 border-muted-foreground" />
-        <span className="absolute opacity-10 top-[-350px] left-[-350px] md:min-[992px]:inline-block hidden rounded-full w-[700px] h-[700px] border-solid border-2 border-muted-foreground" />
+      <div className="absolute bottom-0 right-0 z-0">
+        <span className="absolute left-[-50px] top-[-50px] inline-block h-[100px] w-[100px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-150px] top-[-150px] inline-block h-[300px] w-[300px] rounded-full border-2 border-solid border-muted-foreground opacity-10" />
+        <span className="absolute left-[-250px] top-[-250px] hidden h-[500px] w-[500px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
+        <span className="absolute left-[-350px] top-[-350px] hidden h-[700px] w-[700px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
       </div>
 
       <div>
         <img src={PageLoaderGIF} alt="page-laoder" />
       </div>
-      <div className="text-muted-foreground text-xl font-medium">
+      <div className="text-xl font-medium text-muted-foreground">
         Building...
       </div>
     </div>
@@ -70,9 +70,9 @@ const BackToTopButton = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         onClick={() => scrollToTop()}
-        className="fixed z-50 rounded-full bg-background 2xl:min-[1700px]:bottom-4 md:bottom-28 bottom-4 right-4 cursor-pointer text-primary"
+        className="fixed bottom-4 right-4 z-50 cursor-pointer rounded-full bg-background text-primary md:bottom-28 2xl:min-[1700px]:bottom-4"
       >
-        <CircleUpArrow className="lg:size-16 size-12" />
+        <CircleUpArrow className="size-12 lg:size-16" />
       </motion.div>
     )
   );
@@ -94,7 +94,7 @@ const MainRoute = () => {
           <Route
             index
             element={
-              <Suspense fallback={<div className="bg-background h-svh"></div>}>
+              <Suspense fallback={<div className="h-svh bg-background"></div>}>
                 <Home />
               </Suspense>
             }

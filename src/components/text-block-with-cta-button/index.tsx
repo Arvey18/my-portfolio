@@ -10,19 +10,19 @@ const TextBlockWithCTAButton = ({
 }: TextBlockWithCTAButtonProps) => {
   return (
     <div className="relative w-full">
-      <div className="lg:text-7xl md:text-6xl text-5xl font-medium">
+      <div className="text-5xl font-medium md:text-6xl lg:text-7xl">
         {preTitle}
       </div>
-      <div className="lg:text-8xl md:text-7xl text-6xl font-bold">
+      <div className="text-6xl font-bold md:text-7xl lg:text-8xl">
         {mainTitle}
       </div>
-      <div className="lg:text-2xl md:text-xl text-lg text-muted-foreground md:mt-8 mt-4">
+      <div className="mt-4 text-lg text-muted-foreground md:mt-8 md:text-xl lg:text-2xl">
         {children}
       </div>
       {button && (
-        <div className="md:mt-8 mt-4">
-          <Button className="md:text-lg text-sm md:h-12 h-10 text-white">
-            <Mail className="md:size-20 size-14" />
+        <div className="mt-4 md:mt-8">
+          <Button className="h-10 text-sm text-white md:h-12 md:text-lg">
+            <Mail className="size-14 md:size-20" />
             {button.label}
           </Button>
         </div>
