@@ -18,6 +18,10 @@ export type Icon = {
   icon?: ReactNode;
 };
 
+export type DynamicLink = {
+  [key: string]: string;
+};
+
 export type Callback = {
   callback?: () => void;
 };

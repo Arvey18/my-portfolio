@@ -50,7 +50,7 @@ const SubPageNavigationBar = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="capitalize">
+                <BreadcrumbPage className="font-medium capitalize">
                   {location.pathname.split('/')}
                 </BreadcrumbPage>
               </BreadcrumbItem>

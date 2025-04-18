@@ -1,4 +1,5 @@
 import { SocialMedia } from '@/types/social-media';
+import links from '@/constants/links';
 import FacebookLogo from '@/assets/svg/facebook.svg?react';
 import InstagramLogo from '@/assets/svg/instagram.svg?react';
 import LinkedInLogo from '@/assets/svg/linkedin.svg?react';
@@ -9,7 +10,7 @@ const socialMedias: SocialMedia[] = [
     id: 'facebook-social-media',
     icon: <FacebookLogo />,
     link: {
-      link: 'https://www.facebook.com/Arvey.Rombaoa.Jimenez/',
+      link: links.facebook,
       target: '_blank',
     },
   },
@@ -17,7 +18,7 @@ const socialMedias: SocialMedia[] = [
     id: 'instagram-social-media',
     icon: <InstagramLogo />,
     link: {
-      link: 'https://www.instagram.com/arveyj.07/',
+      link: links.instagram,
       target: '_blank',
     },
   },
@@ -25,7 +26,7 @@ const socialMedias: SocialMedia[] = [
     id: 'linkedin-social-media',
     icon: <LinkedInLogo />,
     link: {
-      link: 'https://www.linkedin.com/in/arveyj07/',
+      link: links.linkedIn,
       target: '_blank',
     },
   },
@@ -33,7 +34,7 @@ const socialMedias: SocialMedia[] = [
     id: 'github-social-media',
     icon: <GithubLogo />,
     link: {
-      link: 'https://github.com/Arvey18',
+      link: links.github,
       target: '_blank',
     },
   },

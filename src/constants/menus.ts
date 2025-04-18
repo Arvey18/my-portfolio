@@ -16,18 +16,30 @@ const MainNavbarMenu: Menu[] = [
     link: '#skills',
     type: 'scrollTo',
   },
-  {
-    label: 'work',
-    link: '#work',
-    type: 'scrollTo',
-  },
+  // {
+  //   label: 'work',
+  //   link: '#work',
+  //   type: 'scrollTo',
+  // },
   {
     label: 'experience',
     link: '#experience',
     type: 'scrollTo',
   },
+  {
+    label: 'Contact',
+    link: '/contact',
+    type: 'navigate',
+  },
 ];
 
-const Menus: string[] = ['home', 'about-me', 'skills', 'work', 'experience'];
+const Menus: string[] = [
+  'home',
+  'about-me',
+  'skills',
+  'work',
+  'experience',
+  'contact',
+];
 
 export { MainNavbarMenu, Menus };

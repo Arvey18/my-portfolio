@@ -19,7 +19,7 @@ const BannerBlock = ({
     } else if (button?.type === 'scrollTo') {
       scrollToSection(button?.link);
     } else {
-      openLink({ link: button?.link, target: '_blank' });
+      openLink({ link: button?.link, target: button.target });
     }
   };
 
@@ -33,7 +33,7 @@ const BannerBlock = ({
         <span className="absolute left-[-450px] top-[-450px] hidden h-[900px] w-[900px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
         <span className="absolute left-[-550px] top-[-550px] hidden h-[1100px] w-[1100px] rounded-full border-2 border-solid border-muted-foreground opacity-10 md:min-[992px]:inline-block" />
       </div>
-      <div className="relative z-10 text-center text-3xl font-semibold text-white lg:text-4xl">
+      <div className="relative z-10 max-w-[260px] text-center text-3xl font-semibold text-white lg:text-4xl">
         {title}
       </div>
       <div className="relative z-10 mb-8 mt-4 flex-1 text-center text-base text-white md:mb-2 md:mt-0 lg:text-lg">

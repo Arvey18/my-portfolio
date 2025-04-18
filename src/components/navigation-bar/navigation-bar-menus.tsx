@@ -5,17 +5,23 @@ import { scrollToSection, openLink } from '@/lib/utils';
 import { Menu } from '@/types/menu';
 import useSettingsStore from '@/stores/settings';
 import { Callback } from '@/types/global-type';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationBarMenus = memo(({ callback }: Callback) => {
   const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('home');
   const isMobile = useSettingsStore((state) => state.isMobile);
+  const navigate = useNavigate();
 
   const clickMenu = (menu: Menu) => {
-    if (menu.type === 'scrollTo') {
-      scrollToSection(menu.link);
+    if (menu?.type === 'navigate') {
+      if (menu?.link) {
+        navigate(menu.link);
+      }
+    } else if (menu?.type === 'scrollTo') {
+      scrollToSection(menu?.link);
     } else {
-      openLink({ link: menu.link, target: '_blank' });
+      openLink({ link: menu?.link, target: menu.target });
     }
   };
 

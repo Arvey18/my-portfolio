@@ -53,3 +53,11 @@ Feel free to fork and submit pull requests if you have improvements or suggestio
 ## License
 
 This project is licensed under the MIT License.
+
+### Local Issuer Certificate
+
+run the following command in cli:
+
+```bash
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+```
