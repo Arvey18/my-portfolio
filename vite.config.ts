@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname);
-  const environment = env.VITE_ENVIRONMENT;
+  const environment = env.VITE_REACT_APP_ENVIRONMENT;
 
   return {
     plugins: [
