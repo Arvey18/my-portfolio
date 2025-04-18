@@ -1,6 +1,5 @@
 'use client';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // React and related libraries
 import { useState } from 'react';
 import { motion } from 'motion/react';
@@ -38,6 +37,7 @@ import AttachmentClip from '@/assets/svg/attachment-clip.svg?react';
 import Load from '@/assets/svg/load.svg?react';
 
 // Declare grecaptcha as a global variable
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const grecaptcha: any;
 
 // form validation schema using Zod
@@ -92,6 +92,7 @@ const Contact = () => {
             .then((token: string) => {
               resolve(token);
             })
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .catch((error: any) => {
               console.error('reCAPTCHA error:', error);
               reject(error);
