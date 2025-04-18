@@ -10,6 +10,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.grecaptcha-badge {
+  z-index: 1;
+}
+
 @layer base {
   :root {
     --background: 206 0% 95%;
