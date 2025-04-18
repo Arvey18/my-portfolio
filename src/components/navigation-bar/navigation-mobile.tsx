@@ -63,7 +63,7 @@ const NavigationMobile = memo(() => {
               opacity: 1,
             }}
             exit={{ opacity: 0 }}
-            className="fixed left-0 top-0 z-50 h-svh w-full justify-end bg-black bg-opacity-40"
+            className="fixed left-0 top-0 z-50 h-full w-full justify-end bg-black bg-opacity-40"
           >
             <motion.div
               initial={{ right: '-100%', opacity: 0 }}
