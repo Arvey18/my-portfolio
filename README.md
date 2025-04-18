@@ -54,7 +54,7 @@ Feel free to fork and submit pull requests if you have improvements or suggestio
 
 This project is licensed under the MIT License.
 
-### Local Issuer Certificate
+### NPM install Local Issue: Registry Certificate
 
 run the following command in cli:
 

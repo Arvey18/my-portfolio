@@ -1,12 +1,15 @@
 'use client';
 
 // React and related libraries
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
+
+// UI components
 import {
   Form,
   FormControl,
@@ -14,11 +17,6 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-
-// Constants
-import links from '@/constants/links';
-
-// UI components
 import Button from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -26,19 +24,18 @@ import { Textarea } from '@/components/ui/textarea';
 // State management
 import useSettingsStore from '@/stores/settings';
 
+// Constants
+import links from '@/constants/links';
+
 // Custom components and assets
 import BannerBlock from '@/components/banner-block';
-import Work from '@/assets/svg/work.svg?react';
 import { openLink } from '@/lib/utils';
 
 // Assets
+import Work from '@/assets/svg/work.svg?react';
 import Mail from '@/assets/svg/mail.svg?react';
 import AttachmentClip from '@/assets/svg/attachment-clip.svg?react';
 import Load from '@/assets/svg/load.svg?react';
-
-// Declare grecaptcha as a global variable
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare const grecaptcha: any;
 
 // form validation schema using Zod
 const formSchema = z.object({
@@ -72,6 +69,8 @@ const Contact = () => {
     showError: false,
   });
 
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -81,49 +80,37 @@ const Contact = () => {
     },
   });
 
-  const executeRecaptcha = async (): Promise<string> => {
-    return new Promise<string>((resolve, reject) => {
-      grecaptcha.ready(() => {
-        try {
-          grecaptcha
-            .execute(import.meta.env.VITE_REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY, {
-              action: 'submit',
-            })
-            .then((token: string) => {
-              resolve(token);
-            })
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            .catch((error: any) => {
-              console.error('reCAPTCHA error:', error);
-              reject(error);
-            });
-        } catch (error) {
-          console.error('reCAPTCHA error:', error);
-          reject(error);
-        }
-      });
-    });
-  };
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values, 'form values');
     setFormBehavior((prev) => ({ ...prev, submitting: true }));
-    try {
-      const token = await executeRecaptcha();
-      await emailjs.send(
-        import.meta.env.VITE_REACT_APP_EMAIL_JS_SERVICE_ID,
-        import.meta.env.VITE_REACT_APP_EMAIL_JS_TEMPLATE_ID,
-        { ...values, 'g-recaptcha-response': token }
-      );
-
-      setFormBehavior((prev) => ({
-        ...prev,
-        submitting: false,
-        showSuccess: true,
-        showError: false,
-      }));
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    if (recaptchaRef.current !== null) {
+      try {
+        const token = await recaptchaRef.current.executeAsync();
+        await emailjs.send(
+          import.meta.env.VITE_REACT_APP_EMAIL_JS_SERVICE_ID,
+          import.meta.env.VITE_REACT_APP_EMAIL_JS_TEMPLATE_ID,
+          { ...values, 'g-recaptcha-response': token }
+        );
+        setFormBehavior((prev) => ({
+          ...prev,
+          submitting: false,
+          showSuccess: true,
+          showError: false,
+        }));
+        recaptchaRef.current.reset();
+        form.reset();
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        recaptchaRef.current.reset();
+        setFormBehavior((prev) => ({
+          ...prev,
+          submitting: false,
+          showSuccess: false,
+          showError: true,
+        }));
+      }
+    } else {
+      console.error('google recaptcha not loaded');
       setFormBehavior((prev) => ({
         ...prev,
         submitting: false,
@@ -205,6 +192,16 @@ const Contact = () => {
                   </FormItem>
                 )}
               />
+              <>
+                <ReCAPTCHA
+                  sitekey={
+                    import.meta.env.VITE_REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY
+                  }
+                  ref={recaptchaRef}
+                  badge="bottomleft"
+                  size="invisible"
+                />
+              </>
               <div className="flex w-full flex-row gap-4">
                 <div className="flex-1">
                   <div
