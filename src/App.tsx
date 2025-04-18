@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect } from 'react';
 import '@/configs/i18n';
 import MainRoute from '@/configs/main-route';

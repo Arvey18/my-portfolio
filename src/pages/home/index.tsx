@@ -1,102 +1,149 @@
-import { useEffect, useState } from 'react';
+// React and State Management
+import { useEffect } from 'react'; // use state need for workcarousel return later
+import { useLocation } from 'react-router-dom';
+import useSettingsStore from '@/stores/settings';
+
+// Components
 import TextBlockWithCTAButton from '@/components/text-block-with-cta-button';
 import BannerBlock from '@/components/banner-block';
+import SectionHeadline from '@/components/section-headline';
+import WorkDetails from '@/components/work-details/index';
+// import WorkTeaserCard from '@/components/work-teaser-card';
+import Skill from '@/components/ui/skill';
+import SocialMediaButton from '@/components/ui/social-media';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+// } from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
-import WorkDetails from '@/components/work-details/index';
+
+// Constants
 import { workExperience } from '@/constants/work-experience';
 import { skillsData } from '@/constants/skills';
+import { socialMedias } from '@/constants/social-media';
+
+// Assets
 import GraphicsWebDevelopment2 from '@/assets/images/graphics-web-development-2.png';
 import GraphicsWebDevelopment from '@/assets/images/graphics-web-development.png';
-import SectionHeadline from '@/components/section-headline';
 import MinusIcon from '@/assets/svg/minus.svg?react';
 import PlusIcon from '@/assets/svg/plus.svg?react';
 import Mail from '@/assets/svg/mail.svg?react';
-import Skill from '@/components/ui/skill';
-import SocialMediaButton from '@/components/ui/social-media';
-import { socialMedias } from '@/constants/social-media';
-import WorkTeaserCard from '@/components/work-teaser-card';
+
+// Utilities
 import { motion } from 'motion/react';
-import useSettingsStore from '@/stores/settings';
-import { CarouselApi } from '@/components/ui/carousel';
-import { cn } from '@/lib/utils';
+// import { CarouselApi } from '@/components/ui/carousel';
+// import { cn } from '@/lib/utils';
+import { scrollToSection } from '@/lib/utils';
 
-const WorkCarousel = () => {
-  const isMobile = useSettingsStore((state) => state.isMobile);
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+/*
+ * A carousel component that displays a series of work teaser cards.
+ *
+ * Features:
+ * - Loops through a set of items and displays them in a carousel format.
+ * - Allows navigation between items using dots below the carousel.
+ * - Updates the current active item dynamically.
+ * - Responsive design for mobile and desktop views.
+ *
+ * @returns A carousel showcasing work teaser cards.
+ */
+// const WorkCarousel = () => {
+//   const isMobile = useSettingsStore((state) => state.isMobile);
+//   const [api, setApi] = useState<CarouselApi>();
+//   const [current, setCurrent] = useState(0);
+//   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
+//   useEffect(() => {
+//     if (!api) {
+//       return;
+//     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
+//     setCount(api.scrollSnapList().length);
+//     setCurrent(api.selectedScrollSnap());
 
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+//     api.on('select', () => {
+//       setCurrent(api.selectedScrollSnap());
+//     });
+//   }, [api]);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, top: '2rem' }}
-      whileInView={{ opacity: 1, top: '0rem' }}
-      viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
-      className="relative mt-12"
-    >
-      <Carousel
-        opts={{
-          loop: true,
-        }}
-        setApi={setApi}
-      >
-        <CarouselContent>
-          {Array(3)
-            .fill(null)
-            .map((_value, key) => {
-              return (
-                <CarouselItem key={`work-teaser-card-${key}`}>
-                  <WorkTeaserCard />
-                </CarouselItem>
-              );
-            })}
-        </CarouselContent>
-      </Carousel>
-      <div className="mt-4 flex flex-row justify-center gap-2">
-        {Array(count)
-          .fill(null)
-          .map((_value, key) => {
-            return (
-              <div
-                className={cn(
-                  'h-[10px] w-[10px] rounded-full bg-muted-foreground',
-                  current === key && 'bg-primary'
-                )}
-                onClick={() => api?.scrollTo(key)}
-                key={`work-teaser-card-${key}`}
-              ></div>
-            );
-          })}
-      </div>
-    </motion.div>
-  );
-};
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, top: '2rem' }}
+//       whileInView={{ opacity: 1, top: '0rem' }}
+//       viewport={{ once: true, amount: isMobile ? 0 : 0.5 }}
+//       className="relative mt-12"
+//     >
+//       <Carousel
+//         opts={{
+//           loop: true,
+//         }}
+//         setApi={setApi}
+//       >
+//         <CarouselContent>
+//           {Array(3)
+//             .fill(null)
+//             .map((_value, key) => {
+//               return (
+//                 <CarouselItem key={`work-teaser-card-${key}`}>
+//                   <WorkTeaserCard />
+//                 </CarouselItem>
+//               );
+//             })}
+//         </CarouselContent>
+//       </Carousel>
+//       <div className="mt-4 flex flex-row justify-center gap-2">
+//         {Array(count)
+//           .fill(null)
+//           .map((_value, key) => {
+//             return (
+//               <div
+//                 className={cn(
+//                   'h-[10px] w-[10px] rounded-full bg-muted-foreground',
+//                   current === key && 'bg-primary'
+//                 )}
+//                 onClick={() => api?.scrollTo(key)}
+//                 key={`work-teaser-card-${key}`}
+//               ></div>
+//             );
+//           })}
+//       </div>
+//     </motion.div>
+//   );
+// };
 
+/**
+ * The `Home` page represents the main page of the portfolio website.
+ * It includes multiple sections such as "Home", "About Me", "Skills", "Experience", and "Contact Banner".
+ * Each section is styled and animated using motion and utility classes.
+ *
+ * Features:
+ * - Smooth scrolling to sections based on URL hash.
+ * - Responsive design for mobile and desktop views.
+ * - Animated components for better user experience.
+ * - Displays personal information, skills, and work experience.
+ * - Includes a contact banner for reaching out.
+ *
+ * @returns The `Home` component containing the portfolio's main content.
+ */
 const Home = () => {
   const isMobile = useSettingsStore((state) => state.isMobile);
+  const location = useLocation();
+  const hash = location.hash;
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 1000);
+    }
+  }, []);
+
   return (
     <>
       <section
@@ -291,7 +338,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section
+      {/* remove for now as it is not ready yet */}
+      {/* <section
         id="work"
         className="relative w-full overflow-hidden bg-background px-4"
       >
@@ -343,7 +391,7 @@ const Home = () => {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
       <section
         id="experience"
         className="relative w-full overflow-hidden bg-background px-4"

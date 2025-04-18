@@ -27,6 +27,7 @@ const NavigationMobile = memo(() => {
     document.documentElement.className = '';
     document.documentElement.classList.add(themeStyle);
   }, [themeStyle]);
+
   return (
     <>
       <motion.nav

@@ -20,6 +20,9 @@ export default [
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
+      globals: {
+        grecaptcha: true,
+      },
     },
     plugins: {
       react,
